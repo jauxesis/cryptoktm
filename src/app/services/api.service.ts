@@ -21,12 +21,24 @@ export class ApiService {
     public globalparamsService:GlobalparamsService,
     public router:Router
   ) { 
-  	this.url = this.globalparamsService.apiLink;
+  	//this.url = this.globalparamsService.apiLink;
+  	this.url = this.globalparamsService.javaLink;
   }
 
   callGetApi(){
   	return new Promise((resolve,reject)=>{
   		this.http.get(this.url+"dataset/coin/ethereum")
+  		.map(res=>res.json())
+  		.subscribe(
+  			d=>resolve(d),
+  			e=>reject(e)
+  		);
+  	});
+	}
+	
+	callTxApi(){
+  	return new Promise((resolve,reject)=>{
+  		this.http.get(this.url)
   		.map(res=>res.json())
   		.subscribe(
   			d=>resolve(d),

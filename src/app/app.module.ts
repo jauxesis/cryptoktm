@@ -10,6 +10,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 import {Ng2Webstorage} from 'ngx-webstorage';
 import { LoadingModule,ANIMATION_TYPES } from 'ngx-loading';
+import { ChartsModule } from 'ng2-charts';
 
 //services
 import { ApiService } from './services/api.service';
@@ -52,7 +53,8 @@ import { LoginComponent } from './login/login.component';
         secondaryColour: '#ffffff', 
         tertiaryColour: '#ffffff',
         fullScreenBackdrop:true
-    })
+    }),
+    ChartsModule
   ],
   schemas: [ NO_ERRORS_SCHEMA ],
   providers: [

@@ -9,17 +9,25 @@ import {LocalStorageService} from 'ngx-webstorage';
 })
 export class NavbarComponent implements OnInit {
 
+  user:any;
+
   constructor(
   	public router:Router,
   	public localstorage:LocalStorageService
   ) { }
 
   ngOnInit() {
+    this.user = this.jsUcfirst(this.localstorage.retrieve("CryptoKTMName"));
+  }
+
+  jsUcfirst(string) 
+  { 
+    return string.charAt(0).toUpperCase() + string.slice(1);
   }
 
   logout(){
     this.localstorage.clear();
-  	this.router.navigate(["login"]);
+  	this.router.navigateByUrl("login");
   }
 
   portfolio(){

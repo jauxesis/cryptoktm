@@ -6,45 +6,34 @@
         <div class="row">
             <div class="col-md-12">
 
-                <!--Table-->
-				<table class="table">
-
-				    <!--Table head-->
-				    <thead class="blue-grey lighten-4">
-				        <tr>
-				            <th>#</th>
-				            <th>First Name</th>
-				            <th>Last Name</th>
-				            <th>Username</th>
-				        </tr>
-				    </thead>
-				    <!--Table head-->
-
-				    <!--Table body-->
-				    <tbody>
-				        <tr>
-				            <th scope="row">1</th>
-				            <td>Mark</td>
-				            <td>Otto</td>
-				            <td>@mdo</td>
-				        </tr>
-				        <tr>
-				            <th scope="row">2</th>
-				            <td>Jacob</td>
-				            <td>Thornton</td>
-				            <td>@fat</td>
-				        </tr>
-				        <tr>
-				            <th scope="row">3</th>
-				            <td>Larry</td>
-				            <td>the Bird</td>
-				            <td>@twitter</td>
-				        </tr>
-				    </tbody>
-				    <!--Table body-->
-				</table>
-				<!--Table-->
-
+				<h2>Exchange Details</h2>
+				<div class="row graphQL">
+					<div class="col-md-8">
+						<!-- <canvas baseChart width="400" height="250"
+						[datasets]="lineChartData"
+						[labels]="lineChartLabels"
+						[options]="lineChartOptions"
+						[colors]="lineChartColors"
+						[legend]="lineChartLegend"
+						[chartType]="lineChartType"
+						(chartHover)="chartHovered($event)"
+						(chartClick)="chartClicked($event)"></canvas> -->
+		
+							<canvas baseChart
+										[data]="doughnutChartData"
+										[labels]="doughnutChartLabels"
+										[chartType]="doughnutChartType"
+										(chartHover)="chartHovered($event)"
+										(chartClick)="chartClicked($event)"></canvas>
+						 
+					</div>
+					<div class="col-md-4">
+						<h4>Used Exchanges</h4>
+						<ol class="olgraph">
+							<li *ngFor="let e of exchanges">{{e.excId}}</li>
+						</ol>
+					</div>
+				</div>
 				<!--Table-->
 				<table class="table">
 
@@ -52,38 +41,44 @@
 				    <thead class="mdb-color darken-3">
 				        <tr class="text-white">
 				            <th>#</th>
-				            <th>First Name</th>
-				            <th>Last Name</th>
-				            <th>Username</th>
+				            <th>Exchange Name</th>
+				            <th>Exchange Type</th>
+				            <th>Trade Type</th>
+				            <th>Current Value</th>
+				            <th>Trade Amount</th>
+				            <th>Date</th>
+				            <th>Tx ID</th>
 				        </tr>
 				    </thead>
 				    <!--Table head-->
 
-				    <!--Table body-->
-				    <tbody>
-				        <tr>
-				            <th scope="row">1</th>
-				            <td>Mark</td>
-				            <td>Otto</td>
-				            <td>@mdo</td>
-				        </tr>
-				        <tr>
-				            <th scope="row">2</th>
-				            <td>Jacob</td>
-				            <td>Thornton</td>
-				            <td>@fat</td>
-				        </tr>
-				        <tr>
-				            <th scope="row">3</th>
-				            <td>Larry</td>
-				            <td>the Bird</td>
-				            <td>@twitter</td>
+					<!--Table body-->
+					<tbody *ngIf="isData == 0">
+						<tr>
+							<td colspan="8">Loading...</td>
+						</tr>
+					</tbody>
+					<tbody *ngIf="isData == 1">
+						<tr>
+							<td colspan="8">No details found.</td>
+						</tr>
+					</tbody>
+				    <tbody *ngIf="isData == 2">
+				        <tr *ngFor="let i of markets">
+				            <th scope="row">{{i.rowid}}</th>
+				            <td>{{i.excId}}</td>
+				            <td>{{i.cryptType}}</td>
+				            <td>{{i.type}}</td>
+				            <td>{{i.amount}}</td>
+				            <td>{{i.atPrice}}</td>
+				            <td>{{i.humantimestamp}}</td>
+				            <td>{{i.txId}}</td>
 				        </tr>
 				    </tbody>
 				    <!--Table body-->
 				</table>
 				<!--Table-->
-
+				
             </div>
         </div>
     </div>
