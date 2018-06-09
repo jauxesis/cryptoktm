@@ -29,6 +29,9 @@
 					</div>
 					<div class="col-md-4">
 						<h4>Used Exchanges</h4>
+						<div class="exchangesbtn">
+							<button type="button" class="btn btn-info waves-light" [routerLink]="['/portfolio']" mdbWavesEffect><i class="fa fa-address-book" aria-hidden="true"></i> Portfolio</button>
+						</div>
 						<ol class="olgraph">
 							<li *ngFor="let e of exchanges">{{e.excId}}</li>
 						</ol>

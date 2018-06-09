@@ -21,24 +21,22 @@
 				    <!--Table head-->
 
 				    <!--Table body-->
-				    <tbody>
-				        <tr>
-				            <th scope="row">1</th>
+				    <tbody *ngIf="isData == 0">
+				    	<tr>
+				    		<td colspan="8">Loading...</td>
+				    	</tr>
+				    </tbody>
+				    <tbody *ngIf="isData == 1">
+				    	<tr>
+				    		<td colspan="8">No portfolio results found.</td>
+				    	</tr>
+				    </tbody>
+				    <tbody *ngIf="isData == 2">
+				        <tr *ngFor="let p of portFolio">
+				            <th scope="row">{{1}}</th>
 				            <td>Mark</td>
 				            <td>Otto</td>
 				            <td>@mdo</td>
-				        </tr>
-				        <tr>
-				            <th scope="row">2</th>
-				            <td>Jacob</td>
-				            <td>Thornton</td>
-				            <td>@fat</td>
-				        </tr>
-				        <tr>
-				            <th scope="row">3</th>
-				            <td>Larry</td>
-				            <td>the Bird</td>
-				            <td>@twitter</td>
 				        </tr>
 				    </tbody>
 				    <!--Table body-->
