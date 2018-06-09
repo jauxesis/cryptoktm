@@ -1,0 +1,41 @@
+<header class="h-100">
+<!-- <app-loginnavbar></app-loginnavbar> -->
+<!--Main Layout-->
+<div class="view">
+      <div class="full-bg-img">
+		  <div class="cktm">Crypto KTM</div>
+          <div class="mask rgba-black-light flex-center">
+              <div class="container  white-text">
+                  <div class="white-text  wow fadeInUp">
+                      <div class="row justify-content-start">
+                      	<div class="col-6">
+	                  		<!-- Login form -->
+						    <form [formGroup]="loginForm" (ngSubmit)="login()">
+						      <p class="h5 text-center mb-4">Sign in</p>
+
+						      <div class="md-form">
+						        <i class="fa fa-envelope prefix grey-text"></i>
+						        <input type="text" formControlName="FormName"  class="form-control" mdbInputDirective>
+						        <label style="color:#fff" for="defaultForm-email">Your name</label>
+						      </div>
+
+						      <div class="md-form">
+						        <i class="fa fa-lock prefix grey-text"></i>
+						        <input type="password" formControlName="FormPass" id="defaultForm-pass" class="form-control" mdbInputDirective>
+						        <label style="color:#fff" for="defaultForm-pass">Your password</label>
+						      </div>
+
+						      <div class="text-center">
+						        <input type="submit" class="btn btn-default waves-light" mdbWavesEffect value="Login">
+						      </div>
+						    </form>
+						<!-- Login form -->
+						</div>
+					</div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+    <!-- /.Main -->
+</header>
