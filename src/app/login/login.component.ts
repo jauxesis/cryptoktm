@@ -43,6 +43,11 @@ export class LoginComponent implements OnInit {
   	)*/
   }
 
+  jsUcfirst(string) 
+  { 
+    return string.charAt(0).toUpperCase() + string.slice(1);
+  }
+
   login() {
   	console.log(this.loginForm.value,this.loginForm.valid);
   	if(!this.loginForm.valid){
@@ -55,7 +60,8 @@ export class LoginComponent implements OnInit {
 	  	}else{
 	  		let name = this.loginForm.value.FormName;
 	  		this.localstorage.store("CryptoKTMName",name);
-		  	this.toastr.success('Welcome '+this.localstorage.retrieve("CryptoKTMName"), null,{timeOut:4000});
+	  		name = this.jsUcfirst(this.localstorage.retrieve("CryptoKTMName"));
+		  	this.toastr.success('Welcome '+name, null,{timeOut:4000});
 		  	this.localstorage.store("CryptoKTMisAuth",true);
 	  		this.router.navigate(["home"]);
 	  	}
